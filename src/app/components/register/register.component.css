@@ -1,0 +1,57 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+h3{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+}
+
+
+.card-header{
+  background-color: #F65B5F;
+  margin-top: 5rem;
+ 
+}
+.btn{
+  background-color: #1b1b1b;
+}
+.btn{
+  display: grid;
+  margin: auto;
+  background-color: #1b1b1b;
+  outline: none;
+  border: 1px solid #1b1b1b;
+  background-image: 
+    linear-gradient(to top, hsl(0, 0%, 100%) 50%, white 50%),
+    linear-gradient(to top, #F65B5F 50%, transparent 50%);
+  
+  -webkit-background-clip: text,padding-box;
+  background-clip: text,padding-box;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 200%;
+  background-position: top;
+  transition: background-position 0.5s ease-in-out;
+ 
+}
+.btn:hover{
+  background-position: bottom;
+  border: 1px solid #F65B5F;
+}
+
+
+.re-image .card{
+  width: 60%;
+ margin: 0 auto;
+}
+.re-image{
+  background-image: radial-gradient(#d8d7d72c 20%, transparent 20%);
+  background-size: 30px 30px;
+}
+.btn:focus{
+  text-shadow: none;
+}

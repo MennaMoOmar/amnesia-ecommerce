@@ -1,0 +1,221 @@
+
+/* hero */
+#hero{
+  background-image: url('../../../assets/images/bg-slide1.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 90vh;
+ text-align: center;
+ /* margin-top: 2rem;  */
+}
+.btn{
+  background-color: #FFFFFF;
+  outline: none;
+  border: 1px solid #F65B5F;
+  background-image: 
+    linear-gradient(to top, hsl(0, 0%, 100%) 50%, #F65B5F 50%),
+    linear-gradient(to top, #F65B5F 50%, transparent 50%);
+  -webkit-background-clip: text,padding-box;
+  background-clip: text,padding-box;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 200%;
+  background-position: top;
+  transition: background-position 0.5s ease-in-out;
+ 
+}
+.btn:hover{
+  background-position: bottom;
+}
+#hero .container-fluid {
+  display: grid;
+  align-items: center;
+  height: 70vh;
+  font-size: 20px;
+}
+
+#hero h3{
+  color: #F65B5F;
+  font-size: 4rem;
+}
+#hero p{
+  color: #1b1b1b;
+}
+#hero button{
+  margin-top: 30px;
+}
+
+.row{
+  width: 100%;
+}
+.btn:focus{
+  box-shadow: none;
+}
+
+
+/*subscribe*/
+
+
+
+/*about*/
+#about{
+  margin: 50px 0px 50px 0px;
+}
+
+#about .im{
+  background-image: url('src/assets/images/beauty_trand_1_a42f410a-0900-4e5f-9ea7-b05be96f5d9b_350x340.png');
+  /* background-attachment: fixed; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x:center;
+  width: 100%;
+
+}
+
+#about h3{
+ 
+  font-size: 3rem;
+  color: #F65B5F;
+  text-align: center;
+  margin: 50px;
+
+}
+
+#about p{
+  margin: 20px 0px 20px 0px;
+}
+#about i{
+  color: #F65B5F;
+  font-weight: 300;
+  margin-right: 10px;
+}
+#about span{
+  display: block;
+  padding: 10px 0px 10px 0px;
+}
+/* team */
+#team .row{
+  margin: 0 auto;
+  text-align: center;
+ 
+}
+#team h1{
+  color: #F65B5F;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#team img{
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  margin: 0 auto;
+  border:10px solid white;
+  box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+}
+#team img:hover{
+  cursor:pointer;
+  transition: ease-in-out .2s;
+}
+#team h3{
+  color: #F65B5F;
+  font-size: 1.8rem;
+  text-align: center;
+
+}
+#team h3:hover{
+  color:#1b1b1b;
+
+}
+#team ul{
+  list-style-type: none;
+}
+#team h4{
+  color:rgb(218, 211, 211);
+  font-size: 1rem;
+  text-align: center;
+}
+#team p{
+  font-size: 20px;
+  text-align: center;
+  color: #585858;
+}
+#team ul li{
+  display: inline-block;
+}
+#team ul li i{
+  width: 30px;
+  border-radius: 100%;
+  color: #F65B5F;
+  border: 1px double #F65B5F;
+  padding: 7px;
+  text-align: center;
+  margin: 10px;
+}
+#team ul li i:hover{
+  border: 1px double white;
+  cursor:pointer;
+  transition: ease-in-out .2s;
+  color:#1b1b1b;
+  background-color: white;
+}
+
+/* scrollup */
+#scrollUp {
+    
+  width: 40px;
+  height: 40px;
+  background-color:#1b1b1b ;
+  color: #ffffff;
+  line-height: 45px;
+  right: 20px;
+  bottom: 60px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 50px;
+  z-index: 9811 !important;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  
+
+}
+#scrollUp:hover {
+  background-color: #F65B5F;
+  color: white;
+}
+
+/* clients */
+#clients {
+  background-image: url("src/assets/images/parallax.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 400px;
+  margin: 100px 0px 0px 0px;
+  display: grid;
+  align-items: center;
+  
+}
+
+#clients .row{
+  justify-content: center;
+}
+#clients .col-lg-6{
+
+  border-radius: 20px;
+}
+#clients .carousel-item{
+  padding: 20px;
+}
+#clients img{
+  width: 80px;
+  border-radius: 50%;
+}
+#clients .stars i{
+  color: #f1c30f;
+}
+#clients .client h3{
+  color: #F65B5F;
+  font-size: 3rem;
+  text-align: center;
+}

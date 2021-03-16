@@ -1,0 +1,184 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <!-- fixed-top -->
+  <div  class="logo">
+    <!-- <img src="/assets/images2.png"> -->
+    <a class="navbar-brand" href="#">Amnesia</a>
+  </div>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="list">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#aboutUs">About</a>
+          <!-- <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contactUs" routerLinkActive="active">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">English</a>
+            <a class="dropdown-item" href="#">Arabic</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+ 
+  <div class="btns">
+    <ul class="navbar-nav">
+      <button  *ngIf="!_authService.loggedIn()"  routerLink="/login" routerLinkActive="active"class="btn" id="loginBtn" type="submit" >Login</button>
+        <button  *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active"class="btn" id="registerBtn" type="submit" > Register</button>
+      <!-- <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a> -->
+      <!-- <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a> -->
+      <button  style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()"class="btn" id="logoutBtn" type="submit">Logout</button>
+      <!-- <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>  -->
+      <li  class="nav-item pl-2">
+        <span class="cart_Count">
+          <span class="s">0</span>
+          <a class="nav-link">
+          <i class="fas fa-shopping-cart "></i></a>
+        </span>
+      </li>
+      <li  class="nav-item pl-2">
+        <span class="fav_Count">
+          <span class="s1">0</span>
+          <a class="nav-link">
+          <i class="far fa-heart"></i></a></span>
+      </li> 
+      <li>
+        <form class="d-flex">
+          <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+            <a class="nav-link"><i class="fas fa-search "></i></a>
+        </form>
+      </li>
+  </ul>
+ 
+  </div>
+    
+</div>
+</nav>    
+
+
+<!-- data-toggle="modal"
+      data-target="#staticBackdrop" -->
+
+<!-- kkkkkkkkkkkkkkkk -->
+<!-- <div class="top-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mr-auto">
+        <a href="#">Phone: +2 01027713049</a>
+        <a href="#">Email: asmaaeldeeb04@gmail.com</a>
+      </div>
+      <div class="col-md-4 ml-auto text-right">
+          <a href="#">Gift Card</a>
+          <a href="#">Track Order</a>
+          <a href="#">Language</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+  
+
+<!-- Navbar -->
+<!-- <header class="navbar navbar-expand-lg bsnav pt-lg-0 pb-lg-0 position-sticky">
+  <div class="container">
+    <a class="navbar-brand" href="#">Amnesia</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <nav class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contactUs" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>       
+        <li  class="nav-item pl-2">
+          <a class="nav-link"><i class="fas fa-search "></i></a>
+          
+        </li>
+        
+        <li  class="nav-item pl-2">
+          <span class="cart_Count">0<a class="nav-link">
+            <i class="fas fa-shopping-cart "></i></a></span>
+        </li>
+        <li  class="nav-item pl-2">
+          <span class="fav_Count">0<a class="nav-link">
+            <i class="far fa-heart"></i></a></span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="bsnav-mobile">
+  <div class="bsnav-mobile-overlay"></div>
+  <div class="navbar"></div>
+</div> -->
+
+<!-- tmplate -->
+<!-- <header>
+
+  <div class="header-1">
+  
+      <a href="#" class="logo"> <i class="fas fa-shopping-bag"></i>Amensia</a>
+  
+      <div class="form-container">
+          <form action="">
+              <input type="search" placeholder="search products" id="search" /> 
+              <label for="search" class="fas fa-search"></label>
+          </form>
+      </div>
+  
+  </div>
+  
+  <div class="header-2">
+  
+      <div id="menu" class="fas fa-bars"></div>
+  
+      <nav class="navbar fixed">
+          <ul>
+              <li><a class="active" href="#home">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">contact Us</a></li>
+              <li><a href="#">Feature</a></li>
+          </ul>
+      </nav>
+  
+      <div class="icons">
+          <a href="#" class="fas fa-heart"></a>
+          <a href="#" class="fas fa-shopping-cart"></a>
+          <a href="#" class="fas fa-user"></a>
+      </div>
+  
+  </div>
+  
+  </header> -->
