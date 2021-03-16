@@ -58,7 +58,6 @@ const routes: Routes = [
   { path: 'adminProductAdd', component: AdminProductAddComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  // {path:'contactUs',component:ContactUsComponent},
   { path: 'confirmRegister', component: ConfirmRegisterComponent },
   // {path:'**',component:ErrorComponent}
 
