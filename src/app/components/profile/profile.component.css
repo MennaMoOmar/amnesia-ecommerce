@@ -10,12 +10,14 @@
 }
 #profile .navbar-light .navbar-toggler {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    /* top: 100px;
+    left: 10px; */
+    top: 80px;
+    right: 10px;
 }
 #profile aside{
     /* width: 20%; */
-    height: 100vh;
+    min-height: 100vh;
     display: block;
     background-color: #5d5d5d25;
 }

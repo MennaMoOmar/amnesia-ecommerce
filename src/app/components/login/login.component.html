@@ -1,50 +1,33 @@
-
-  
-  <!-- register for check -->
-
-
-
-
-
-  <div class="contain">
-    <div class="row pt-5">
-      <div class="col-md-6 mx-auto">
-        <div class="card rounded-0">
-          <div class="card-header">
-            <h3 class="mb-0">Login</h3>
+<body>
+  <div class="login-form">
+      <form  [formGroup]="myForm">
+          <h2 class="text-center">Login</h2>   
+          <div class="error text-danger">
+            <p>{{errMsg}}</p>
           </div>
-          <div class="card-body">
-            <form action="" class="form" [formGroup]="myForm">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text"  appFormValidation="{{isvalidEmail}}"placeholder="Email" (input)="onChange()"
-                  formControlName="email" name="email" class="form-control rounded-0" required>
-               
-                <div *ngIf="myForm.controls.email.errors && myForm.controls.email.touched" class="error text-danger">
-                  <p *ngIf="myForm.controls.email.errors.required">email is Required</p>
-                  <p *ngIf="myForm.controls.email.errors.pattern">invalid email</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" appFormValidation="{{isvalidPassword}}" (input)="onChange()"name="password" formControlName="password"
-                  class="form-control rounded-0" placeholder="password" required>
-            
-                <div *ngIf="myForm.controls.password.errors && myForm.controls.password.touched" class="error text-danger">
-                  <p *ngIf="myForm.controls.password.errors.required">password is Required</p>
-                  <p *ngIf="myForm.controls.password.errors.minlength">passwor must be at least 8 characters</p>
-                </div>
-              </div>
-              <div class="ax"><a class="link" routerLink="/" routerLinkActive="active">Forget Password?</a></div>
-              <button (click)="loginUser()" type="button" class="btn btn-primary rounded-0">Log In</button>
-               
+          <div class="form-group">
+            <input type="text"  appFormValidation="{{isvalidEmail}}"placeholder="Email" (input)="onChange()"
+                formControlName="email" name="email" class="form-control rounded-0" required>
              
-            </form>
+              <div *ngIf="myForm.controls.email.errors && myForm.controls.email.touched" class="error text-danger">
+                <p *ngIf="myForm.controls.email.errors.required">email is Required</p>
+                <p *ngIf="myForm.controls.email.errors.pattern">invalid email</p>
+              </div>
           </div>
-        </div>
-      </div>
-  </div>
-
-  </div>
+      <div class="form-group">
+        <input type="password" appFormValidation="{{isvalidPassword}}" (input)="onChange()"name="password" formControlName="password"
+        class="form-control rounded-0" placeholder="password" required>
   
-          
+      <div *ngIf="myForm.controls.password.errors && myForm.controls.password.touched" class="error text-danger">
+        <p *ngIf="myForm.controls.password.errors.required">password is Required</p>
+        <p *ngIf="myForm.controls.password.errors.minlength">passwor must be at least 8 characters</p>
+      </div>
+          </div>        
+          <div class="form-group">
+              <button (click)="loginUser()" type="button" class="btn btn-primary btn-lg btn-block">Log in</button>
+          </div>
+          <p><a routerLink = "/">Forget your Password?</a></p>
+      </form>
+      <p class="text-center small">Don't have an account? <a routerLink = "/register">Sign up here!</a></p>
+  </div>
+  </body>

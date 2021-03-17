@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { shareReplay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -12,7 +12,11 @@ import { Observable } from 'rxjs';
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  constructor(private myService: ProductsService, private myActivatedRoute: ActivatedRoute) { }
+  constructor(
+    private myService: ProductsService,
+    private myActivatedRoute: ActivatedRoute,
+    private router: Router
+    ) { }
 
   /*var*/
   products
@@ -30,7 +34,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
   /*set orders*/
   setProductOnCart() {
-    console.log(this.mycartObj)
+    if(this.mycartObj.length==0){
+      this.router.navigate(['/cartEmpty']);
+    }
     for (let i = 0; i < this.mycartObj.length; i++) {
       this.price.push(this.mycartObj[i].current_price * this.mycartObj[i].quantity)
       this.productImgoArr.push(`https://amnesia-skincare.herokuapp.com/api/images/show/${this.mycartObj[i].image}`)
@@ -56,15 +62,11 @@ export class CartComponent implements OnInit, OnDestroy {
     }
   }
 
-
   /*delete product from cart*/
   deleteProduct(index, e) {
     this.totalPrice -= this.mycartObj[index].current_price * this.mycartObj[index].quantity
     this.mycartObj.splice(index, 1)
-    // this.mycartObj.splice(this.price, 1)
     document.getElementsByTagName("tr")[parseInt(index) + 1].style.display = "none";
-    // document.getElementsByTagName("tr")[parseInt(index) + 1].remove();
-    // console.log(this.mycartObj[index])
     localStorage.setItem('cart', JSON.stringify(this.mycartObj))
   }
 

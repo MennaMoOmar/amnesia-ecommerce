@@ -13,12 +13,7 @@ export class ProductsService {
   }
 
   /*local storage*/
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDMxYTM0NzI4MmQ4MDAwMTVmODczZjgiLCJpYXQiOjE2MTQ0NDE1NzV9.y3PBLeU1Y-SlAxmqVKjTiT8BMnbVPEIgFy8hs7VHiRA'
-
-  localStorageToken = (token) => {
-    localStorage.setItem('token', token)
-    return localStorage.getItem('token');
-  }
+  token = localStorage.getItem('cart')
 
   private baseURL: string = "https://amnesia-skincare.herokuapp.com/api"
   
@@ -31,6 +26,18 @@ export class ProductsService {
         })
       };
       return this.myClient.get(`${this.baseURL}/products/${id}`, httpOptions);
+    }
+
+    /*delete product from favourite*/
+    deleteProductFromFavourite(id){
+      console.log(id)
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: this.token
+        })
+      };
+      return this.myClient.delete(`${this.baseURL}/products/favorites/${id}`, httpOptions);
     }
 
 }

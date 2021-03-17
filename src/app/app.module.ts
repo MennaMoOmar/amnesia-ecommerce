@@ -45,6 +45,7 @@ import { AdminAllOrdersComponent } from './components/admin-all-orders/admin-all
 import { AdminOrderDetailsComponent } from './components/admin-order-details/admin-order-details.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { AdminProductAddComponent } from './components/admin-product-add/admin-product-add.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import{ContactUsService} from './services/contactus.service'
 // import{DefaultLayoutComponent} from './components/containers/default-layout/default-layout.component'
 
@@ -71,6 +72,8 @@ import { AuthGuard } from './auth.guard';
 import {TokenInterceptorService} from './services/token-interceptor.service'
 import { ConfirmRegisterComponent } from './components/confirm-register/confirm-register.component';
 import { FormValidationDirective } from './directives/form-validation.directive';
+import { FavouriteComponent } from './components/favourite/favourite.component';
+import { FavouriteEmptyComponent } from './components/favourite-empty/favourite-empty.component';
 
 
 
@@ -129,7 +132,11 @@ const materialUi = [
     NavbarComponent,
     HomeComponent,
     ConfirmRegisterComponent,
-    FormValidationDirective
+    FormValidationDirective,
+    ContactUsComponent,
+    FavouriteComponent,
+    FavouriteEmptyComponent
+    
   ],
   imports: [
     BrowserModule,

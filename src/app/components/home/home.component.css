@@ -51,16 +51,10 @@
   box-shadow: none;
 }
 
-
-/*subscribe*/
-
-
-
 /*about*/
 #about{
   margin: 50px 0px 50px 0px;
 }
-
 #about .im{
   background-image: url('src/assets/images/beauty_trand_1_a42f410a-0900-4e5f-9ea7-b05be96f5d9b_350x340.png');
   /* background-attachment: fixed; */
@@ -72,12 +66,10 @@
 }
 
 #about h3{
- 
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #F65B5F;
   text-align: center;
-  margin: 50px;
-
+  margin-bottom: 50px;
 }
 
 #about p{
@@ -86,7 +78,7 @@
 #about i{
   color: #F65B5F;
   font-weight: 300;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 #about span{
   display: block;
@@ -98,12 +90,11 @@
   text-align: center;
  
 }
-#team h1{
+#team h3{
   color: #F65B5F;
-  font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 #team img{
   border-radius: 50%;
@@ -112,6 +103,12 @@
   margin: 0 auto;
   border:10px solid white;
   box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+  width: 150px;
+  height: 150px;
+  border: 5px double #F65B5F;
+  width: 150px;
+  height: 150px;
+  border: 5px double #F65B5F;
 }
 #team img:hover{
   cursor:pointer;
@@ -131,12 +128,11 @@
   list-style-type: none;
 }
 #team h4{
-  color:rgb(218, 211, 211);
+  color: rgb(246 91 95);
   font-size: 1rem;
-  text-align: center;
+  margin-top: 20px;
 }
 #team p{
-  font-size: 20px;
   text-align: center;
   color: #585858;
 }
@@ -176,8 +172,6 @@
   z-index: 9811 !important;
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  
-
 }
 #scrollUp:hover {
   background-color: #F65B5F;
@@ -216,6 +210,6 @@
 }
 #clients .client h3{
   color: #F65B5F;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
 }

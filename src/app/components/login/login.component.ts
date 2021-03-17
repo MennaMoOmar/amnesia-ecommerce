@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   isvalidEmail:any;
   isvalidPassword:any;
 
+  errMsg:any;
   loginUser(){
     this.loginUserData ={
       "email": this.myForm.value.email,
@@ -34,19 +35,25 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {
-        console.log(res)
         this.isvalidEmail = true;
         this.isvalidPassword = true;
         localStorage.setItem('token',res.token)
-        this._router.navigate(['/profile'])
+        //this._router.navigate(['/profile'])
       },
-      (err)=>{
-        console.log(err);
+      //err => console.log(err)
+      err=>{
+        console.log(err.error);
+        if(err.error.confirmed === "no"){
+           this.errMsg ="please check confirmation for your email"
+        }
+        else if(err.error.success == false){
+          this.errMsg ="invalid email or password"
+        }
       }
     )
   }
+
   onChange(){
-    
     this.isvalidEmail= !this.isvalidEmail;
     this.isvalidPassword = !this.isvalidPassword;
     this.isvalidEmail = (this.myForm.controls.email.errors != null&& this.myForm.touched)? false:true;

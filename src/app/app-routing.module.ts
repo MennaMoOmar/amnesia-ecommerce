@@ -30,6 +30,8 @@ import { RegisterComponent } from './components/register/register.component';
 // import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ConfirmRegisterComponent } from './components/confirm-register/confirm-register.component';
 import { AuthGuard } from './auth.guard';
+import { FavouriteComponent } from './components/favourite/favourite.component';
+import { FavouriteEmptyComponent } from './components/favourite-empty/favourite-empty.component';
 
 
 
@@ -49,7 +51,6 @@ const routes: Routes = [
   { path: 'resetpassword/:token', component: ResetpasswordComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'productInfo/:_id', component: ProductViewComponent },
-  // {path:'productCard', component: ProductCardComponent},
   { path: 'productList', component: ProductsListComponent },
   { path: 'admin', component: AdminDashboardComponent },
   { path: 'adminUserOrders/:id', component: AdminUserOrdersComponent },
@@ -59,6 +60,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'confirmRegister', component: ConfirmRegisterComponent },
+  {path: 'favourite', component:FavouriteComponent},
+  {path: 'favouriteEmpty', component:FavouriteEmptyComponent}
   // {path:'**',component:ErrorComponent}
 
 ]

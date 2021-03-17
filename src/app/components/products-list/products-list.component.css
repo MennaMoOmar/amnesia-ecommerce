@@ -1,6 +1,9 @@
 mat-slider {
     width: 100%;
 }
+.products-list{
+    padding-top: 3rem;
+}
 .products-list:before{
     content: ' ';
     display: block;
