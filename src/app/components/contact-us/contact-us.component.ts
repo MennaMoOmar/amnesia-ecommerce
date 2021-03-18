@@ -10,6 +10,9 @@ import { ContactUsService } from '../../services/contactus.service';
 export class ContactUsComponent implements OnInit {
 
   constructor(private contactUsService: ContactUsService) { }
+
+
+ 
   options: any = {};
 
   contactUs: ContactUs = {};
@@ -20,6 +23,8 @@ export class ContactUsComponent implements OnInit {
       zoom: 12
     };
   }
+
+  isvalidFName:any;
 
 
 

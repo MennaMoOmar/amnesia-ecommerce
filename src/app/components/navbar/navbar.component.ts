@@ -6,6 +6,7 @@ import{UsersService} from '../../services/users.service'
 import { Router } from '@angular/router';
 // import { ProductService } from './../../services/product.service';
 // import { Input } from '@material-ui/core';
+import { from } from 'rxjs';
 
 @Component({
   providers:[LoginComponent],
@@ -18,8 +19,8 @@ export class NavbarComponent implements OnInit {
     public _authService: AuthService,
     private product: ProductsService,
     public _userService: UsersService,
+    public logib: LoginComponent,
     // public productService: ProductService,
-    private router:Router
   ) {}
 
   /*var*/
@@ -27,7 +28,7 @@ export class NavbarComponent implements OnInit {
   heartCount: number = 0;
   cartCount:number=0;
   count = JSON.parse(localStorage.getItem('cart')).length;
-  @Input()  count2: string;
+  @Input() Data: any;
   subscriber:any
   user:any={
     firstname:"",
@@ -106,8 +107,8 @@ export class NavbarComponent implements OnInit {
     this.getData();
     /* addToHeart */
     this.product.addToHeart.subscribe(
-      () => {
-        this.heartCount = this.heartCount + 1;
+      (response) => {
+        this.heartCount = this.heartCount + response;
       }
     )
     /* addToCart */

@@ -24,6 +24,7 @@ export class FavouriteComponent implements OnInit {
   
   /*get profile info*/
   getProfileFavourite() {
+    console.log(this.user)
     this.subscriber = this.userService.getProfile()
       .subscribe((user) => {
         this.user = Object.values(user)[0].favoriteProducts;
