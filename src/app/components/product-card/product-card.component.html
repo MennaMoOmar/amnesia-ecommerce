@@ -1,7 +1,7 @@
 <div class="card py-2 rounded-0 border-0" (mouseenter)="appear()" (mouseleave) ="disappear()" style="width: 15rem;" >
     <div [class]="classOfStatus">{{status}}</div>
     <div [class]="fav">
-      <fa-icon [icon]="faHeart" (click)="changeHeartColor()" class="vertical" size="2x" [styles]="{'color': heartIcon}" pull="right"></fa-icon>
+      <fa-icon [icon]="faHeart" (click)="changeHeartColor(_id)" class="vertical" size="2x" [styles]="{'color': heartIcon}" pull="right"></fa-icon>
     </div>
     <div [class]="options">
       <button (click)="gotoProdInfo()" mat-raised-button color="warn">Know more</button>

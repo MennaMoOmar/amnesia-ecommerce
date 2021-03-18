@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { faStar, faCartPlus, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { count } from 'rxjs/operators';
+// import * as EventEmitter from 'node:events';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -9,6 +11,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
+  @Output() count = new EventEmitter();
   addToCartBtn = "Add To Cart"
   faStar = faStar;
   faCartPlus = faCartPlus;
@@ -24,6 +27,8 @@ export class ProductCardComponent implements OnInit {
     _id: string;
     isFavorite: boolean;
   };
+
+  ids:string[]=[];
   _id: string;
   image: string;
   star;
@@ -34,6 +39,7 @@ export class ProductCardComponent implements OnInit {
   classOfStatus: string;
   options = "options-disappear";
   fav = "fav-disappear";
+  
   appear() {
     this.options = "options-appear";
     this.fav = "fav-appear";
@@ -42,8 +48,14 @@ export class ProductCardComponent implements OnInit {
     this.options = "options-disappear";
     this.fav = "fav-disappear";
   }
-  changeHeartColor() {
+
+  /*chnge color*/
+  changeHeartColor(id) {
     // we will pass the id to the back-end later
+    if(!this.ids.includes(id)){
+    this.myService.addToHeart.next();
+    this.ids.push(id)
+  }
     if (!this.objectOfInputs.isFavorite) {
       this.heartIcon = "#F65B5F";
       console.log("add to fav")
@@ -51,8 +63,16 @@ export class ProductCardComponent implements OnInit {
   }
 
   /* add to cart */
+  // cartId:string[]=[]
   cartProducts = localStorage.getItem('cart');
   addToCart(event) {
+    this.count = JSON.parse(localStorage.getItem('cart')).length;
+    // console.log(this.count)
+    // this.myService.addToCart.next();
+    // if(!this.cartId.includes(id)){
+    //   this.myService.addToCart.next();
+    //   this.cartId.push(id)
+    // }
     let cart: any = JSON.parse(localStorage.getItem('cart')) || [];
     let found = cart.find(product => product.productId == this.objectOfInputs._id);
     console.log(found)
@@ -73,9 +93,7 @@ export class ProductCardComponent implements OnInit {
   constructor(
     private router: Router,
     private myService: ProductsService
-  ) {
-
-  }
+  ) {}
 
 
   ngOnInit(): void {
@@ -106,6 +124,7 @@ export class ProductCardComponent implements OnInit {
     this.router.navigate(['/productInfo/' + this._id])
   }
 }
+
 function getRating(rating: number) {
   let arr = ["grey", "grey", "grey", "grey", "grey"]
   for (let i = 0; i < rating; i++) {

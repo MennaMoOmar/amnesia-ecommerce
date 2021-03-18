@@ -1,4 +1,23 @@
-button#goHomeBtn{
+#error{
+    text-align: center;
+    height: 60vh;
+    display: grid;
+    align-items: center;
+}
+#error .err{
+    text-align: -webkit-center;
+}
+#error h2{
+    font-size: 2.5rem;
+    color: #F65B5F;
+    border: 3px solid #F65B5F;
+    width: fit-content;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding-top: 30px;
+}
+#error button#goHomeBtn{
     background-color: #FFFFFF;
     outline: none;
     border: 1px solid #F65B5F;
@@ -13,6 +32,6 @@ button#goHomeBtn{
     background-position: top;
     transition: background-position 0.5s ease-in-out;
 }
-button#goHomeBtn:hover{
+#error button#goHomeBtn:hover{
     background-position: bottom;
 }

@@ -27,6 +27,7 @@ export class FavouriteComponent implements OnInit {
     this.subscriber = this.userService.getProfile()
       .subscribe((user) => {
         this.user = Object.values(user)[0].favoriteProducts;
+        console.log(this.user.length)
         if(this.user.length==0){
           this.router.navigate(['/favouriteEmpty']);
         }

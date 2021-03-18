@@ -99,7 +99,7 @@ export class RegisterComponent implements OnInit {
               this.isvalidGender =true;
               this.isvalidPassword = true;
               this.isvalidCPassword =true;
-              this._router.navigate(['/confirmRegister'])
+              this._router.navigate(['/confirmed'])
             }
           },
          

@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private _auth: AuthService, private _router: Router, private fb: FormBuilder) { }
   myForm = new FormGroup({ 
     email: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z]{1}[a-zA-Z0-9.\-_]*@[a-zA-Z]{1}[a-zA-Z.-]*[a-zA-Z]{1}[.][a-zA-Z]{3,}$")]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)])
+    password: new FormControl('', [Validators.required])
   })
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.isvalidEmail = true;
         this.isvalidPassword = true;
         localStorage.setItem('token',res.token)
-        //this._router.navigate(['/profile'])
+        this._router.navigate(['/profile'])
       },
       //err => console.log(err)
       err=>{

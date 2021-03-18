@@ -1,22 +1,32 @@
-nav{
+#navbar .navbar-brand{
+    font-family: 'Berkshire Swash', cursive;
+    /* margin-left: 2rem; */
+}
+#navbar .logo img{
+    width: 50px;
+    height: 50px;
+}
+#navbar nav{
     display: flex;
     padding: 10px;
 }
-.logo{
+#navbar .logo{
     width: 25%;
- 
+
 }
-form{
+#navbar form{
     display: inline-block;
 }
-.list{
+#navbar .list{
     width: 55%;
 }
-.btns{
+#navbar .btns{
     display: flex;
     
 }
-#loginBtn, #registerBtn,#logoutBtn{
+#navbar #loginBtn,
+#navbar #registerBtn,
+#navbar #logoutBtn{
     /* color: #FFFFFF;
     padding: 5px; */
     background-color: #FFFFFF;
@@ -34,12 +44,14 @@ form{
     background-position: top;
     transition: background-position 0.5s ease-in-out;
     /* border-radius: 30px; */
-    height: 35px
+    height: 35px;
+    display:flex;
+    align-items: center;
 }
-#loginBtn{
+#navbar #loginBtn{
     margin-left: 20px;
 }
-input{
+#navbar input{
     /* border-radius: 50px;
     border:1px solid #F65B5F; */
     border: none;
@@ -48,10 +60,10 @@ input{
     outline: none;
     color: #FFFFFF;
 }
-input::placeholder{
+#navbar input::placeholder{
     color: #FFFFFF;
 }
-input:focus{
+#navbar input:focus{
     outline: none;
     background-color: transparent;
 }
@@ -60,34 +72,44 @@ input:focus{
     border-radius: 50px;
     border:1px solid #F65B5F;
 } */
-.list li:hover{
+#navbar .list li:hover{
     background-position: bottom;
     color: #F65B5F ;
 }
-.dropdown-item:hover{
+#navbar .dropdown-item:hover{
     background-color: #F65B5F;
     color:#FFFFFF;
 }
-#loginBtn:hover , #registerBtn:hover,#logoutBtn:hover{
+#navbar #loginBtn:hover ,
+#navbar #registerBtn:hover,
+#navbar #logoutBtn:hover{
     background-position: bottom;
   }
-.list a{
+#navbar .list a{
     color: #FFFFFF;
     font-size: .9rem;
     padding: 0px;
     margin: 10px;
 }
-.list a:hover{
+#navbar .list a:hover{
     color: #FFFFFF;
 }
-.dropdown-menu a{
+#navbar .dropdown-menu a{
     color: #1b1b1b;
+    margin: 0px;
+    padding: 5px;
 }
-nav{
+#navbar nav{
     background-color: #F65B5F!important;
     box-shadow: 0px 0px 10px 7px #f65b5fba;
+    padding: 5px;
 }
-.s,.s1{
+#navbar .pl-2, .px-2 ,i{
+    display: grid;
+    align-items: center;
+}
+#navbar .s,
+#navbar .s1{
     color: #FFFFFF;
     position: absolute;
     border-radius: 50%;
@@ -97,25 +119,48 @@ nav{
     top:6px;
     /* text-align: center; */
 }
-.nav-item i,.nav-link i{
+#navbar .nav-item i,
+#navbar .nav-link i{
     padding: 0px;
     margin: 0px;
     color: #FFFFFF;
     font-size: 1.5rem;
+    outline: none;
 }
-input:focus{
+#navbar input:focus{
     box-shadow: none;
 }
-.btn{
+#navbar .btn{
     box-shadow: none;
 }
-.toggle{
+#navbar .toggle{
     display: none;
 }
-.navbar-expand-lg .navbar-collapse {
+#navbar .navbar-expand-lg .navbar-collapse {
     place-content: flex-end;
 }
-.active{
+#navbar .active{
     font-weight: bold;
     border-bottom: 2px solid white;
+    cursor: pointer;
 }
+#navbar .avatar{
+    width: 50px;
+    height: 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+#navbar .navbar-dark .navbar-nav .nav-link {
+    color: rgb(255 255 255);
+    width: max-content;
+}
+/* .hide{
+    display: block;
+} */
+/* #navbar a:hover{
+    font-weight: bold;
+    border-bottom: 2px solid white;
+} */

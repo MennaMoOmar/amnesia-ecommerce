@@ -52,11 +52,12 @@ export class UsersService {
   //patch resetpw
   crnPassword(userpwJson, tokencrpw) {
     console.log(userpwJson)
-    console.log(this.token)
+    console.log(tokencrpw)
+    // console.log(this.token)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: tokencrpw
+        'Authorization': tokencrpw
       })
     };
     return this.myClient.post(`${this.baseURL}/users/reset/password`, userpwJson, httpOptions);
@@ -71,6 +72,18 @@ export class UsersService {
       })
     };
     return this.myClient.delete(`${this.baseURL}/users/`, httpOptions);
+  }
+
+  //forget password
+  forgetPassword(email){
+    console.log(email)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.token
+      })
+    };
+    return this.myClient.post(`${this.baseURL}/users/forgetPassword`,email, httpOptions);
   }
 
 }

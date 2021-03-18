@@ -1,3 +1,17 @@
+#crmEmail{
+  padding-top: 4rem;
+  display: grid;
+  height: 80vh;
+  justify-content: center;
+  background-image: radial-gradient(#d8d7d72c 20%, transparent 20%);
+  background-size: 30px 30px;
+}
+#crmEmail .col-lg-12{
+  text-align: center;
+}
+#crmEmail i{
+  color: #F65B5F;
+}
 button#goHomeBtn{
     background-color: #FFFFFF;
     outline: none;

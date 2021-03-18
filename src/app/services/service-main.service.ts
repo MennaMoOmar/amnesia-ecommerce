@@ -17,7 +17,7 @@ export class ServiceMainService {
     //   responseType: 'json',
     //   observe: 'response' 
     // };
-    return this.http.get(`${this.baseURL}/products/${id}`);
+    return this.http.get(`${this.baseURL}/products/product/${id}`);
   }
   getProfile(token):Observable<{}>{
     try {

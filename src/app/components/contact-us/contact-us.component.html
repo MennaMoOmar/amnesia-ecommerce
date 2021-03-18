@@ -1,87 +1,96 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+<section id="contact-us">
+  <div class="container">
+    <div class="row" style="margin-bottom:15px;">
+      <div class="col-6">
+        <div class="col-md-offset-1" id="box">
+          <h2 class="colr">Contact Us!</h2>
+          <hr>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <form #f=ngForm class="form-horizontal" name="contactForm" (ngSubmit)="submitContactForm()">
+            <fieldset>
+              <!-- Form Name -->
+              <!-- Text input fullName-->
+              <div class="form-group">
+                <div class="col-md-12" ng-class="{ 'has-error' : fn.invalid && fn.dirty && fn.touched }">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="first_name" #fn=ngModel pattern="^[a-zA-Z]+" [(ngModel)]="contactUs.fullname"
+                      placeholder="Name" class="form-control" type="text" required>
+                  </div>
+                  <span class="help-block" *ngIf="fn.invalid && fn.dirty && fn.touched" style="color: red;">Username is
+                    required.</span>
+                </div>
+              </div>
+              <!-- Text input Subject-->
+              <div class="form-group">
+                <div class="col-md-12" ng-class="{ 'has-error' : f.sn.$invalid && !f.sn.$pristine }">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark "></i></span>
+                    <input name="subject" #sn=ngModel pattern="^[a-zA-Z]+" [(ngModel)]="contactUs.subject"
+                      placeholder="Subject" class="form-control" type="text" required>
+                  </div>
+                  <span class="help-block" *ngIf="sn.invalid && sn.dirty && sn.touched" style="color: red;">Subject is
+                    required.</span>
+                </div>
+              </div>
+              <!-- Text input Email-->
+              <div class="form-group">
+                <div class="col-md-12" ng-class="{ 'has-error' : f.em.$invalid && !f.em.$pristine }">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input name="email" #em=ngModel [(ngModel)]="contactUs.email" placeholder="E-Mail Address"
+                      class="form-control" type="email" pattern="[\w-]+@([\w-]+\.)+[\w-]+" required>
+                  </div>
+                  <span style="color: red;" *ngIf="em.invalid && em.dirty && em.touched" class="help-block"> Enter a
+                    valid
+                    email.</span>
+                </div>
+              </div>
+              <!-- Text input phone-->
+              <div class="form-group"
+                ng-class="{ 'has-error' : contactForm.phone.$invalid && !contactForm.phone.$pristine }">
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input type="text" #ph=ngModel [(ngModel)]="contactUs.phone" class="form-control" name="phone"
+                      pattern="^[0-9]{11}$" placeholder="Enter your Phone" required>
+                  </div>
+                  <span style="color: red;" *ngIf="ph.invalid && ph.dirty && ph.touched">Phone Number is
+                    required.</span>
+                </div>
+              </div>
 
-    <div class="container">
-        <div class="row" style="margin-bottom:15px;">
-          <div class="col-6">
-            <div class="col-md-offset-1" id="box">
-              <h2 class="colr" >Contact Us!</h2>
-              <hr>    
-              
-              <form  #f=ngForm  class="form-horizontal" name="contactForm" (ngSubmit)="submitContactForm()">
-                <fieldset>
-                  <!-- Form Name -->
-                  <!-- Text input fullName-->
-                  <div class="form-group">
-                    <div class="col-md-12" ng-class="{ 'has-error' : fn.invalid && fn.dirty && fn.touched }">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="first_name" #fn=ngModel pattern="^[a-zA-Z]+" [(ngModel)]="contactUs.fullname" placeholder="Name" class="form-control" type="text" required>
-                      </div>
-                      <span  class="help-block" *ngIf="fn.invalid && fn.dirty && fn.touched" style="color: red;">Username is required.</span>
-                    </div>
+              <!-- Text input message-->
+              <div class="form-group"
+                ng-class="{ 'has-error' : contactForm.comment.$invalid && !contactForm.comment.$pristine }">
+                <div class="col-md-12 inputGroupContainer">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <textarea class="form-control" #ms=ngModel [(ngModel)]="contactUs.message" rows="6" name="comment"
+                      placeholder="Message" ng-maxlength="255" ng-minlength="10" required></textarea>
                   </div>
-                  <!-- Text input Subject-->
-                  <div class="form-group">
-                    <div class="col-md-12" ng-class="{ 'has-error' : f.sn.$invalid && !f.sn.$pristine }">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark "></i></span>
-                        <input name="subject" #sn=ngModel pattern="^[a-zA-Z]+" [(ngModel)]="contactUs.subject" placeholder="Subject" class="form-control" type="text" required>
-                      </div>
-                      <span  class="help-block" *ngIf="sn.invalid && sn.dirty && sn.touched" style="color: red;">Subject is required.</span>
-                    </div>
-                  </div>
-                  <!-- Text input Email-->
-                  <div class="form-group">
-                    <div class="col-md-12" ng-class="{ 'has-error' : f.em.$invalid && !f.em.$pristine }">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" #em=ngModel   [(ngModel)]="contactUs.email" placeholder="E-Mail Address"  class="form-control" type="email" pattern="[\w-]+@([\w-]+\.)+[\w-]+" required>
-                      </div>
-                      <span style="color: red;" *ngIf="em.invalid && em.dirty && em.touched"  class="help-block"> Enter a valid email.</span>
-                    </div>
-                  </div>
-                  <!-- Text input phone-->
-                  <div class="form-group" ng-class="{ 'has-error' : contactForm.phone.$invalid && !contactForm.phone.$pristine }">
-                    <div class="col-md-12">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input type="text" #ph=ngModel [(ngModel)]="contactUs.phone" class="form-control"  name="phone" pattern="^[0-9]{11}$" placeholder="Enter your Phone" required>
-                      </div>
-                      <span style="color: red;" *ngIf="ph.invalid && ph.dirty && ph.touched">Phone Number is required.</span>
-                    </div>
-                  </div>
-         
-                  <!-- Text input message-->
-                  <div class="form-group" ng-class="{ 'has-error' : contactForm.comment.$invalid && !contactForm.comment.$pristine }">
-                    <div class="col-md-12 inputGroupContainer">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" #ms=ngModel [(ngModel)]="contactUs.message"  rows="6" name="comment" placeholder="Message" ng-maxlength="255" ng-minlength="10" required></textarea>
-                      </div>
-                      <span style="color: red;" *ngIf="ms.invalid && ms.dirty && ms.touched" class="help-block"> Enter a Message.</span>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-md-12">
-                      <button type="submit"gv  class="btn  pull-right" ng-disabled="contactForm.$invalid">Send
-                          <!-- <span class="glyphicon glyphicon-send"></span> -->
-                      </button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-
-           <!-- map -->
-          </div>
-          <div class="col-6">
-            <p-gmap id="map" [options]="options" [style]="{'width':'100%','height':'420px'}" ></p-gmap>
-          </div>
+                  <span style="color: red;" *ngIf="ms.invalid && ms.dirty && ms.touched" class="help-block"> Enter a
+                    Message.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12">
+                  <button type="submit" gv class="btn  pull-right" ng-disabled="contactForm.$invalid">Send
+                    <!-- <span class="glyphicon glyphicon-send"></span> -->
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
       </div>
+      <!-- map -->
+      <div class="col-6">
+        <p-gmap id="map" [options]="options" [style]="{'width':'100%','height':'420px'}"></p-gmap>
+      </div>
 
-
+    </div>
+  </div>
+</section>

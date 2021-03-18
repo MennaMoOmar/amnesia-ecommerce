@@ -7,15 +7,23 @@ import { HttpClient } from '@angular/common/http';
   })
 export class ProductService{
    amnesiaURL= "https://amnesia-skincare.herokuapp.com/api/";
+  //  _baseUrl ="https://amnesia-skincare.herokuapp.com/api/products/get/all";
     //{{amnesiaURL}}/products/?limit=4&skip=1
     products:Product[]=[];
     constructor(private http:HttpClient) {}
+
     getAllProducts(){
       return this.products.slice(); //copy from products
     }
+
+    // getProducts(){
+    //   return this.http.get(this._baseUrl)
+    // }
 
     getAllProductsApi(skip,take){
       console.log('sssss')
       return this.http.get(this.amnesiaURL + "products/?limit="+take +"&skip="+skip ); //copy from products
     }
+
+    
 }

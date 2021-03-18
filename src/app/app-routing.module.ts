@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -12,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartEmptyComponent } from './components/cart-empty/cart-empty.component';
 import { CartBuyComponent } from './components/cart-buy/cart-buy.component';
-import { ConfirmedComponent } from './components/confirmed/confirmed.component'
+// import { ConfirmedComponent } from './components/confirmed/confirmed.component'
 import { FailComponent } from './components/fail/fail.component'
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component'
 import { ProductViewComponent } from './components/product-view/product-view.component';
@@ -27,16 +28,24 @@ import { AdminProductAddComponent } from './components/admin-product-add/admin-p
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-// import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ConfirmRegisterComponent } from './components/confirm-register/confirm-register.component';
 import { AuthGuard } from './auth.guard';
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { FavouriteEmptyComponent } from './components/favourite-empty/favourite-empty.component';
+import { ErrorComponent } from './components/error/error.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ConfirmedComponent } from './components/confirmed/confirmed.component';
+import { ForgetPwComponent } from './components/forget-pw/forget-pw.component';
+import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
+import { PwChangedSuccessfullyComponent } from './components/pw-changed-successfully/pw-changed-successfully.component';
+import { from } from 'rxjs';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'confirmRegister', component: ConfirmRegisterComponent },
   {
    path: 'profile', canActivate: [AuthGuard], component: ProfileComponent,
   },
@@ -48,7 +57,7 @@ const routes: Routes = [
   { path: 'cartEmpty', component: CartEmptyComponent },
   { path: 'confirmed', component: ConfirmedComponent },
   { path: 'fail', component: FailComponent },
-  { path: 'resetpassword/:token', component: ResetpasswordComponent },
+  { path: 'resetpassword/:usertoken', component: ResetpasswordComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'productInfo/:_id', component: ProductViewComponent },
   { path: 'productList', component: ProductsListComponent },
@@ -59,10 +68,16 @@ const routes: Routes = [
   { path: 'adminProductAdd', component: AdminProductAddComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'confirmRegister', component: ConfirmRegisterComponent },
   {path: 'favourite', component:FavouriteComponent},
-  {path: 'favouriteEmpty', component:FavouriteEmptyComponent}
-  // {path:'**',component:ErrorComponent}
+  {path: 'favouriteEmpty', component:FavouriteEmptyComponent},
+  {path: 'contactUs', component: ContactUsComponent},
+  {path:'nav', component:NavbarComponent},
+  // {path: 'confirmed',component:ConfirmedComponent},
+  {path: 'forgetPassword', component:ForgetPwComponent},
+  {path: 'confirmEmail', component:ConfirmEmailComponent},
+  {path: 'pwChangedSucc', component:PwChangedSuccessfullyComponent},
+  {path:'a',component:AppComponent},
+  {path:'**',component:ErrorComponent},
 
 ]
 
@@ -70,7 +85,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   exports: [
     RouterModule

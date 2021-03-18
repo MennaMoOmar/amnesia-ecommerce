@@ -8,10 +8,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {GMapModule} from 'primeng/gmap'
 
 
-// import {RouterModule, Routes} from '@angular/router'
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
@@ -28,7 +24,7 @@ import { ValidationDirective } from './directives/validation.directive';
 import { ValidationCorrectDirective } from './directives/validation-correct.directive';
 import { ValidationErrorDirective } from './directives/validation-error.directive';
 import { PasswordErrorDirective } from './directives/password-error.directive';
-import { ConfirmedComponent } from './confirmed/confirmed.component';
+import { ConfirmedComponent } from './components/confirmed/confirmed.component';
 import { FailComponent } from './components/fail/fail.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -74,8 +70,10 @@ import { ConfirmRegisterComponent } from './components/confirm-register/confirm-
 import { FormValidationDirective } from './directives/form-validation.directive';
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { FavouriteEmptyComponent } from './components/favourite-empty/favourite-empty.component';
-
-
+import { ErrorComponent } from './components/error/error.component';
+import { ForgetPwComponent } from './components/forget-pw/forget-pw.component';
+import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
+import { PwChangedSuccessfullyComponent } from './components/pw-changed-successfully/pw-changed-successfully.component';
 
 
 
@@ -135,7 +133,11 @@ const materialUi = [
     FormValidationDirective,
     ContactUsComponent,
     FavouriteComponent,
-    FavouriteEmptyComponent
+    FavouriteEmptyComponent,
+    ErrorComponent,
+    ForgetPwComponent,
+    ConfirmEmailComponent,
+    PwChangedSuccessfullyComponent
     
   ],
   imports: [

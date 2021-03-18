@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service'
 import { OrdersService } from '../../services/orders.service'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,7 +11,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CartBuyComponent implements OnInit, OnDestroy {
 
-  constructor(private myService: UsersService, private myServiceOrder: OrdersService, private myActivatedRoute: ActivatedRoute) { }
+  constructor(
+    private myService: UsersService,
+    private myServiceOrder: OrdersService,
+    private myActivatedRoute: ActivatedRoute,
+    private router: Router
+    ) { }
 
   /*services*/
   user
@@ -57,8 +62,9 @@ export class CartBuyComponent implements OnInit, OnDestroy {
             .subscribe((orderinfoJson) => {
               console.log(orderinfoJson);
               localStorage.setItem('cart',JSON.stringify([]));
-              document.getElementsByTagName('form')[0].style.display = 'none'
-              document.getElementById('orderSuccess').style.display = 'flex'
+              // document.getElementsByTagName('form')[0].style.display = 'none';
+              document.getElementById('formBuy').style.display='none'
+              document.getElementById('orderSuccess').style.display = 'flex';
             },
               (error) => {
                 console.log(error);
@@ -72,6 +78,7 @@ export class CartBuyComponent implements OnInit, OnDestroy {
       },
       (err) => {
         console.log(err)
+        this.router.navigate(['/login'])
       }
     )
   }

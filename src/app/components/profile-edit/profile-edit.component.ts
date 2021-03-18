@@ -159,7 +159,6 @@ export class ProfileEditComponent implements OnInit, OnDestroy {
             console.log(err);
           })
     });
-
     reader.readAsDataURL(file);
   }
 

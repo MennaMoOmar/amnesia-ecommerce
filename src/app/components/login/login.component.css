@@ -38,12 +38,18 @@ body {
 .login-form .btn {        
 	font-size: 16px;
 	font-weight: bold;
-	background: #3598dc;
 	border: none;
 	outline: none !important;
+	background-color: #F65B5F;
+	color: #FFFFFF;
+	outline: none;
+	box-shadow: none;
+	border: 1px solid #F65B5F;
 }
 .login-form .btn:hover, .login-form .btn:focus {
-	background: #2389cd;
+	border: 1px solid #F65B5F;
+	background-color: #FFFFFF;
+	color: #F65B5F;
 }
 .login-form a {
 	color: #fff;

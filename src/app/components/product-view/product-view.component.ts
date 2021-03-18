@@ -63,11 +63,13 @@ export class ProductViewComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  
   getProductInfo(): void{
     this.service.getProductById(this.id).subscribe((product:any)=>{
       this.product=product.product;
     })
   }
+
   addToFavorites(){
     let token = localStorage.getItem('token') || 'empty token';
     this.service.getProfile(token).subscribe(

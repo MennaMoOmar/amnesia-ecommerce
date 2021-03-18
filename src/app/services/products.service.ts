@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,4 +40,9 @@ export class ProductsService {
       return this.myClient.delete(`${this.baseURL}/products/favorites/${id}`, httpOptions);
     }
 
+    /*count heart*/
+    addToHeart=new Subject();
+    
+    /* addToCart */
+    addToCart=new Subject();
 }
