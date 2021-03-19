@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {ServiceMainService} from '../../services/service-main.service';
 import { faStar, faCartPlus, faHeart } from '@fortawesome/free-solid-svg-icons';
 import {Router,ActivatedRoute, ParamMap} from '@angular/router';
+import { ProductsService } from 'src/app/services/products.service';
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
@@ -29,7 +30,11 @@ export class ProductViewComponent implements OnInit {
   star = ["grey","grey","grey","grey","grey"];
   reviews =12;
   id;
-  constructor(private service:ServiceMainService, private router: Router,private route: ActivatedRoute) { 
+  constructor(
+    private service:ServiceMainService,
+     private router: Router,
+     private route: ActivatedRoute,
+     private myService: ProductsService) { 
     this.id = this.route.snapshot.paramMap.get('_id') || "6031188490d8610015e3967b";
 
     console.log(this.id)
@@ -76,6 +81,7 @@ export class ProductViewComponent implements OnInit {
       (user:any)=>{
         this.service.addFavorite(token,this.id).subscribe(()=>{
           this.addToFavBtn="Added";
+          this.myService.addToHeart.next(1);
         })
       },
       err=>{

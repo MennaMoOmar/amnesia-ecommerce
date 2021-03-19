@@ -1,6 +1,7 @@
 import { ProductService } from './../../services/product.service';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-products-list',
@@ -22,9 +23,14 @@ export class ProductsListComponent implements OnInit {
   skipGlobal
   limitGlobal
   noOfProducts = 0
-
+  allFavorites=[];
   /*ctor*/
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private userService: UsersService
+    ) {
+      // this.getData(0,5)
+    }
 
 
   formatLabel(value: number) {
@@ -36,7 +42,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   slider(event) {
-    console.log(event.value)
+    // console.log(event.value)
     this.obj = this.allData.filter((product) => {
       return Number(product.current_price) <= Number(event.value)
     })
@@ -51,8 +57,24 @@ export class ProductsListComponent implements OnInit {
         this.loading = false;
         this.appear = true;
         this.allData = response.products;
-        console.log(this.allData)
-        this.obj = response.products;
+        // console.log(this.obj)
+        this.userService.getProfile().subscribe(
+          (res:any)=>{
+            // console.log(res)
+            this.allFavorites = res.user.favoriteProducts.map((item)=>item._id);
+            let arrayOfOBJ=[];
+            this.allData.map((item,index)=>{
+              if(this.allFavorites.includes(item._id)){
+                this.allData[index].isFavorite = true;
+              }
+            })
+            this.obj = this.allData;
+            console.log(this.allData)
+          },
+          err=>{
+            console.log(err)
+          }
+        )
         this.arrnoOfPages = [];
         this.noOfProducts = response.length
         this.noOfPages = Math.ceil(response.length / 5);
@@ -94,5 +116,6 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.paginate(1);
+    console.log(this.obj)
   }
 }

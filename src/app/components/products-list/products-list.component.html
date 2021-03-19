@@ -58,7 +58,7 @@
                </li>
             </ul>
             <div class="container row m-auto cards">
-               <app-product-card [objectOfInputs]="obj[i]" class="col-md-4 col-sm-6 col-xm-12"
+               <app-product-card [objectOfInputs]="obj[i]" [favorites]="allFavorites" class="col-md-4 col-sm-6 col-xm-12"
                   *ngFor="let ob of obj; index as i;"></app-product-card>
             </div>
          </div>

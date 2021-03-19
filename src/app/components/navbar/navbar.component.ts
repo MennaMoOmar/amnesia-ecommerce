@@ -15,10 +15,11 @@ import { from } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
   constructor(
     public _authService: AuthService,
     private product: ProductsService,
-    public _userService: UsersService,
+    private _userService: UsersService,
     public logib: LoginComponent,
     // public productService: ProductService,
   ) {}
@@ -109,6 +110,12 @@ export class NavbarComponent implements OnInit {
     this.product.addToHeart.subscribe(
       (response) => {
         this.heartCount = this.heartCount + response;
+      }
+    )
+
+    this._userService.getProfile().subscribe(
+      (response:any)=>{
+        this.heartCount=response.user.favoriteProducts.length??0;  
       }
     )
     /* addToCart */

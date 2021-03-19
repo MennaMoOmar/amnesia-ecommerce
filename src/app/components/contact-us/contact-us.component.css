@@ -31,5 +31,14 @@
 }
 #contact-us  h2{
     color: #F65B5F;
-    text-align: center
+    text-align: center;
+    font-size: 2rem;
 }
+#contact-us .col-lg-6{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+/* #contact-us img{
+    width: 60%;
+} */

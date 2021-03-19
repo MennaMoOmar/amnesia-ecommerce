@@ -3,6 +3,7 @@ import { from } from 'rxjs';
 import { ProductService } from './../../services/product.service';
 import {ProductsListComponent} from '../products-list/products-list.component'
 import { Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   providers:[ProductsListComponent],
@@ -18,7 +19,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   
-  shopnow() { }
+  shopnow() {
+    this.router.navigate(['/productList']);
+  }
 
   onscroll
   myScroll: any = document.getElementById("scrollUp");

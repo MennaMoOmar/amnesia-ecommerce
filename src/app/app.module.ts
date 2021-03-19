@@ -6,6 +6,8 @@ import { UsersService } from './services/users.service'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {GMapModule} from 'primeng/gmap'
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 
 import { AppComponent } from './app.component';
@@ -149,6 +151,7 @@ const materialUi = [
     BrowserAnimationsModule,
     FontAwesomeModule,
     GMapModule,
+    CarouselModule ,
     ...materialUi
   ],
   providers: [

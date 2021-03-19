@@ -82,4 +82,11 @@
   transition: 0.7s all;
   pointer-events: none;
 }
+img{
+  width: 250px;
+  height: 250px;
+}
+.badge{
+  left: 0px;
+}
 /*-----------------------------------------------------------------------*/

@@ -15,7 +15,8 @@ export class FavouriteComponent implements OnInit {
     private userService: UsersService,
     private productsService: ProductsService,
     private myActivatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private myService: ProductsService
     ) { }
   /*var*/
   subscriber
@@ -40,10 +41,28 @@ export class FavouriteComponent implements OnInit {
   }
   /*delete product from cart*/
   deleteProduct(index, id) {
+    ///
+    // this.myService.subtractToFav(id).subscribe(
+
+    //   () => {
+    //     let index = this.ids.indexOf(id);
+    //     if (index != -1) {//if id exist in array
+    //       this.ids.splice(index, 1);
+    //     }
+    //     console.log('subtract');
+    //     this.myService.addToHeart.next(-1);
+    //   },
+    //   //handle error 
+    //   (error) => {
+    //     console.log(error);
+    //   },
+    // ) 
+    ///
     console.log(id)
     this.subscriber = this.productsService.deleteProductFromFavourite(id)
     .subscribe((product) => {
       console.log(product);
+      this.myService.addToHeart.next(-1);
       document.getElementsByTagName("tr")[parseInt(index) + 1].style.display = "none";
     },
       (error) => {

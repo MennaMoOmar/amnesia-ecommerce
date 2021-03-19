@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from '../../services/orders.service'
 import { shareReplay } from 'rxjs/operators';
 
@@ -16,7 +16,9 @@ import { shareReplay } from 'rxjs/operators';
 })
 export class ProfileOrdersComponent implements OnInit {
 
-  constructor(private myService: OrdersService, private myActivated: ActivatedRoute) { }
+  constructor(private myService: OrdersService,
+    private myActivated: ActivatedRoute,
+    private router: Router) { }
 
   /*var*/
   orders
@@ -78,6 +80,17 @@ export class ProfileOrdersComponent implements OnInit {
     })
   }
 
+  orderDetails(id){
+    console.log(id)
+    this.subscriber = this.myService.displayOneOrder(id)
+      .subscribe((orders) => {
+        console.log(orders)
+        this.router.navigate([`/profile/:${id}`])
+      },
+      (err)=>{
+        console.log(err);
+      })
+  }
 
   ngOnInit(): void {
     this.showAllOrders()
